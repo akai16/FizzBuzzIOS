@@ -44,6 +44,18 @@ class LeaderBoardViewController: UIViewController {
         }
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            self.deleteFromDB(player: self.players[indexPath.row])
+            self.players.remove(at: indexPath.row)
+            self.playerTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    func deleteFromDB(player: PlayerMO) {
+        self.DBManagerHelper.managedContext?.delete(player)
+        self.DBManagerHelper.appDelegate?.saveContext()
+    }
     
 }
 
