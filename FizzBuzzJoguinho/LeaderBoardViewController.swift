@@ -15,6 +15,7 @@ class LeaderBoardViewController: UIViewController {
     var players: [PlayerMO] = []
     var DBManagerHelper : DBManager = DBManager.getInstance()
     
+    
     //MARK : - Outlets
     @IBOutlet weak var playerTableView: UITableView!
     
@@ -23,7 +24,9 @@ class LeaderBoardViewController: UIViewController {
         super.viewDidLoad()
     
         self.playerTableView.dataSource = self
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.fetchPlayers()
         self.playerTableView.reloadData()
     }
@@ -36,6 +39,9 @@ class LeaderBoardViewController: UIViewController {
     //MARK : - ViewFunctions
     func fetchPlayers() {
         let fetchRequest: NSFetchRequest<PlayerMO> = PlayerMO.fetchRequest()
+        let nsSort = NSSortDescriptor(key: "score", ascending: false)
+        
+        fetchRequest.sortDescriptors = [nsSort]
         
         do {
             try self.players = (DBManagerHelper.managedContext?.fetch(fetchRequest))!
@@ -55,6 +61,11 @@ class LeaderBoardViewController: UIViewController {
     func deleteFromDB(player: PlayerMO) {
         self.DBManagerHelper.managedContext?.delete(player)
         self.DBManagerHelper.appDelegate?.saveContext()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.tabBarItem = UITabBarItem(title: "LeaderBoard", image: #imageLiteral(resourceName: "leaderboard"), tag: 2)
     }
     
 }
@@ -82,8 +93,7 @@ extension LeaderBoardViewController : UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 1    
     }
-    
     
 }

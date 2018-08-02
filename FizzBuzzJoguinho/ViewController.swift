@@ -11,6 +11,8 @@ class ViewController: UIViewController {
     
     // MARK : - Variables
     var currentNumber: Int = 1
+    var gameOver = false
+    var goToLeader = false
     
     //MARK : - Outlets
     @IBOutlet weak var currentNumberButton: UIButton!
@@ -43,6 +45,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.gameStarting()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if (self.gameOver) { self.gameStarting() }
+        if (self.goToLeader) {
+            self.goToLeader = false
+            self.tabBarController?.selectedIndex = 1
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -53,10 +63,12 @@ class ViewController: UIViewController {
     //MARK : - GameFunctions
     func gameStarting() {
         self.currentNumber = 1
+        self.gameOver = false
         self.refreshCurrentButton()
     }
     
     func gameWasLost() {
+        self.gameOver = true
         self.performSegue(withIdentifier: "goToCadastro", sender: nil)
     }
     
@@ -71,6 +83,7 @@ class ViewController: UIViewController {
     }
     
     func gameWasWon() {
+        self.gameOver = true
         self.performSegue(withIdentifier: "goToCadastro", sender: nil)
     }
     
@@ -86,8 +99,17 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindFromCadastro(segue: UIStoryboardSegue) {
-        gameStarting()
+    @IBAction func unwindContinueToPlay(segue: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func unwindGoToLeaderBoard(segue: UIStoryboardSegue) {
+        self.goToLeader = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.tabBarItem = UITabBarItem(title: "Game", image: #imageLiteral(resourceName: "game"), tag: 1)
     }
     
     

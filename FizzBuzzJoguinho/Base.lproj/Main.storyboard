@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wm7-z4-ieS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FizzBuzzJoguinho" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,8 +33,8 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JrW-ni-ucC">
                                 <rect key="frame" x="221" y="188" width="95" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.42987625070000002" blue="0.40293889249999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Fizz">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Fizz" backgroundImage="fist">
                                     <color key="titleColor" red="0.010007942969999999" green="0.010489051920000001" blue="0.010666288859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -45,7 +45,7 @@
                                 <rect key="frame" x="79" y="309" width="95" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.42987625070000002" blue="0.40293889249999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Buzz">
+                                <state key="normal" title="Buzz" backgroundImage="bus">
                                     <color key="titleColor" red="0.010007942969999999" green="0.010489051920000001" blue="0.010666288859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -56,7 +56,7 @@
                                 <rect key="frame" x="221" y="309" width="95" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.42987625070000002" blue="0.40293889249999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="FizzBuzz">
+                                <state key="normal" title="FizzBuzz" backgroundImage="fistbus">
                                     <color key="titleColor" red="0.010007942969999999" green="0.010489051920000001" blue="0.010666288859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -74,6 +74,7 @@
                         <color key="backgroundColor" red="0.99965592619999999" green="0.92388245059999996" blue="0.24172363329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Pag-HD-cOb"/>
                     <connections>
                         <outlet property="currentNumberButton" destination="0uw-6Q-qNv" id="pMq-Dw-UCW"/>
                         <segue destination="qS1-Bk-l1a" kind="show" identifier="goToCadastro" id="6AO-zL-9kv"/>
@@ -81,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+            <point key="canvasLocation" x="1056.8" y="118.29085457271366"/>
         </scene>
         <!--Cadastro View Controller-->
         <scene sceneID="Q96-Dp-pYT">
@@ -158,7 +159,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Cancelar"/>
                                 <connections>
-                                    <segue destination="sLQ-zb-Bsh" kind="unwind" unwindAction="unwindFromCadastroWithSegue:" id="MyX-E2-ZuI"/>
+                                    <segue destination="sLQ-zb-Bsh" kind="unwind" unwindAction="unwindContinueToPlayWithSegue:" id="y5B-Jv-QFE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -169,15 +170,15 @@
                         <outlet property="nameField" destination="Lgb-w5-Nio" id="7RE-YS-EFj"/>
                         <outlet property="playerPhoto" destination="2eX-iE-Pyg" id="1h6-9z-n7J"/>
                         <outlet property="scoreLabel" destination="mFa-yj-B3t" id="yMf-Gu-2QH"/>
-                        <segue destination="Evh-7C-cfc" kind="show" identifier="goToLeaderBoard" id="BAN-Rt-TAC"/>
+                        <segue destination="sLQ-zb-Bsh" kind="unwind" identifier="goToLeaderBoard" unwindAction="unwindGoToLeaderBoardWithSegue:" id="w2d-2V-zm3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tq1-Ke-6VK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="sLQ-zb-Bsh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1021.6" y="117.39130434782609"/>
+            <point key="canvasLocation" x="1960.8" y="117.39130434782609"/>
         </scene>
-        <!--Leader Board View Controller-->
+        <!--Item-->
         <scene sceneID="B4o-8m-asv">
             <objects>
                 <viewController id="Evh-7C-cfc" customClass="LeaderBoardViewController" customModule="FizzBuzzJoguinho" customModuleProvider="target" sceneMemberID="viewController">
@@ -193,7 +194,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XKh-9m-pAv">
-                                <rect key="frame" x="0.0" y="126" width="375" height="541"/>
+                                <rect key="frame" x="0.0" y="126" width="375" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.99965592619999999" green="0.92388245059999996" blue="0.24172363329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -232,6 +233,7 @@
                                                 <constraint firstItem="yiN-TM-Sjy" firstAttribute="top" secondItem="i7N-m4-u5m" secondAttribute="top" id="klJ-qU-f9E"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.90684794049999995" blue="0.059031282609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="yiN-TM-Sjy" firstAttribute="width" secondItem="a5f-tK-TZo" secondAttribute="width" multiplier="0.55" id="8Bd-x7-MSg"/>
                                             <constraint firstAttribute="bottom" secondItem="dUY-Uj-WcU" secondAttribute="bottom" id="HMe-Ax-4T5"/>
@@ -250,12 +252,12 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lT-TI-nj6">
-                                <rect key="frame" x="105" y="72" width="178" height="30"/>
+                                <rect key="frame" x="105" y="68" width="178" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Voltar ao Jogo"/>
+                                <state key="normal" title="Recomecar o Jogo"/>
                                 <connections>
-                                    <segue destination="Xsj-DL-15b" kind="unwind" unwindAction="unwindFromCadastroWithSegue:" id="sve-ch-Rjw"/>
+                                    <segue destination="Xsj-DL-15b" kind="unwind" unwindAction="unwindContinueToPlayWithSegue:" id="4j7-oH-kVN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -269,6 +271,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mDo-uH-3B1"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="XKr-yE-7C5"/>
                     <connections>
                         <outlet property="playerTableView" destination="XKh-9m-pAv" id="Cr9-uQ-3Hu"/>
                     </connections>
@@ -276,7 +279,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAQ-f4-P0l" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Xsj-DL-15b" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1997.5999999999999" y="118.29085457271366"/>
+            <point key="canvasLocation" x="2936.8000000000002" y="118.29085457271366"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="xth-7i-uqR">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Wm7-z4-ieS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Ze-RB-8gz">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="p4E-Le-5DV"/>
+                        <segue destination="Evh-7C-cfc" kind="relationship" relationship="viewControllers" id="tTU-gW-Ugp"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iiC-AU-rSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bus" width="512" height="512"/>
+        <image name="fist" width="480" height="480"/>
+        <image name="fistbus" width="1007" height="512"/>
+    </resources>
 </document>

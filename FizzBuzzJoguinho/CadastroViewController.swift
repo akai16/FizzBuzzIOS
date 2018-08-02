@@ -12,8 +12,8 @@ class CadastroViewController: UIViewController {
 
     //MARK : - Variables
     var score: Int = Int.min
-    let alertInvalidInput : UIAlertController = UIAlertController(title: "Erro ao Salvar", message: "Por favor, coloque um nome ou aperte em Cancelar", preferredStyle: .alert)
-    let alertErrorSavingDB : UIAlertController = UIAlertController(title: "Erro ao Salvar", message: "Erro Inesperado ao tentar salvar, por favor, tente denovo", preferredStyle: .alert)
+    let alertInvalidInput: UIAlertController = UIAlertController(title: "Erro ao Salvar", message: "Por favor, coloque um nome ou aperte em Cancelar", preferredStyle: .alert)
+    let alertErrorSavingDB: UIAlertController = UIAlertController(title: "Erro ao Salvar", message: "Erro Inesperado ao tentar salvar, por favor, tente denovo", preferredStyle: .alert)
     
     var DBManagerHelper: DBManager = DBManager.getInstance()
     
@@ -78,9 +78,9 @@ class CadastroViewController: UIViewController {
         var result = true
         
         let newPlayer = PlayerMO(context: self.DBManagerHelper.managedContext!)
-            newPlayer.nome = self.nameField.text
+            newPlayer.nome  = self.nameField.text
             newPlayer.score = Int32(self.scoreLabel.text!)!
-            newPlayer.foto = UIImageJPEGRepresentation(self.playerPhoto.image!, 1)
+            newPlayer.foto  = UIImageJPEGRepresentation(self.playerPhoto.image!, 1)
         
         do {
             try self.DBManagerHelper.managedContext?.save()
